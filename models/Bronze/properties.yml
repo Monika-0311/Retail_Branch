@@ -1,0 +1,30 @@
+models:
+
+    - name: Employees
+      config:
+        materialized: view
+        database: RETAIL_MARKET 
+        schema: DBT_RETAIL_SCH 
+      columns:
+        - name: ID
+          tests:
+            - not_null
+            - unique
+    - name: b_mock_data
+      config:
+        materialized: view
+      columns:
+        - name: Total
+          tests:
+            - non_negitive
+            - not_null
+        - name: Order_ID
+          tests:
+            - unique
+            - not_null
+    
+seeds:
+    - name: users
+      config:
+        materialized: seed
+        schema: RETAIL_SCH

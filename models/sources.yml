@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: RETAIL_MARKET
+    database: RETAIL_MARKET
+    schema: RETAIL_SCH
+    tables:
+    - name: s_Employees
+      identifier: EMPLOYEES
+    - name: s_mock_data
+      identifier: MOCK_DATA
