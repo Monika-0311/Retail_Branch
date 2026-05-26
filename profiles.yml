@@ -1,0 +1,37 @@
+NETFLIX:
+  outputs:
+    dev:
+      account: QLJTVTN-GZ26621
+      database: NETFILX_DB
+      password: Sagar@1997@0503
+      role: ACCOUNTADMIN
+      schema: DBT_INIT
+      threads: 1
+      type: snowflake
+      user: MONIKA11
+      warehouse: COMPUTE_WH
+  target: dev
+RETAIL_MARKET:
+  outputs:
+    dev:
+      account: QLJTVTN-GZ26621
+      database: RETAIL_MARKET
+      password: Sagar@1997@0503
+      role: ACCOUNTADMIN
+      schema: RETAIL_SCH
+      threads: 1
+      type: snowflake
+      user: Monika11
+      warehouse: COMPUTE_WH
+     
+    prod:
+      account: QLJTVTN-GZ26621
+      database: RETAIL_MARKET_PROD
+      password: Sagar@1997@0503
+      role: ACCOUNTADMIN
+      schema: SOURCE
+      threads: 1
+      type: snowflake
+      user: Monika11
+      warehouse: COMPUTE_WH
+  target: dev

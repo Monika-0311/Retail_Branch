@@ -1,0 +1,32 @@
+name: dbt CI
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+  env:
+    account: ${{ secrets.ACCOUNT }}
+    database: ${{ secrets.DATABASE }}
+    password: ${{ secrets.PASSWORD }}
+    role: ${{ secrets.ROLE }}
+    schema: ${{ secrets.SCHEMA }}
+    threads: 1
+
+  jobs:
+    dbt:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check out repository
+        - uses: actions/checkout@v3
+        
+        - name: install dbt
+          run: uv add dbt-core dbt-snowflake
+
+        - name: Install dependencies
+          run: dbt deps
+
+        - name: Run test
+          run: dbt test --models b_mock_data
+
+        - name: Run dbt
+          run: dbt run --models b_mock_data
