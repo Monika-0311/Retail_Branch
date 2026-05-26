@@ -6,6 +6,9 @@ on:
       - main
   pull_request:
 
+  schedule:
+    - cron: '5 * * * *'
+
 jobs:
   run-dbt:
     runs-on: ubuntu-latest
@@ -31,6 +34,6 @@ jobs:
           ROLE: ${{ secrets.ROLE }}
           SCHEMA: ${{ secrets.SCHEMA }}
         run: |
-          dbt test --target dev
-          dbt run --select b_mock_data --target dev
+          dbt test --target prod
+          dbt run --select b_mock_data --target prod
           
