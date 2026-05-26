@@ -1,32 +1,36 @@
-name: dbt CI
+name: dbt CI/CD
+
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches:
+      - main
+  pull_request:
 
-  env:
-    account: ${{ secrets.ACCOUNT }}
-    database: ${{ secrets.DATABASE }}
-    password: ${{ secrets.PASSWORD }}
-    role: ${{ secrets.ROLE }}
-    schema: ${{ secrets.SCHEMA }}
-    threads: 1
+jobs:
+  run-dbt:
+    runs-on: ubuntu-latest
 
-  jobs:
-    dbt:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Check out repository
-        - uses: actions/checkout@v3
-        
-        - name: install dbt
-          run: uv add dbt-core dbt-snowflake
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-        - name: Install dependencies
-          run: dbt deps
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-        - name: Run test
-          run: dbt test --models b_mock_data
+      - name: Install dependencies
+        run: |
+          pip install dbt-core dbt-snowflake
 
-        - name: Run dbt
-          run: dbt run --models b_mock_data
+      - name: Run dbt
+        env:
+          ACCOUNT: ${{ secrets.ACCOUNT }}
+          DATABASE: ${{ secrets.DATABASE }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          ROLE: ${{ secrets.ROLE }}
+          SCHEMA: ${{ secrets.SCHEMA }}
+        run: |
+          dbt test --target dev
+          dbt run --select b_mock_data --target dev
+          
