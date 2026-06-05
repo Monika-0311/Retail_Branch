@@ -34,6 +34,7 @@ models:
   RETAIL_MARKET:
     Bronze:
       +materialized: view
+      +schema: RETAIL_SCH
     Silver:
       +materialized: table
 
