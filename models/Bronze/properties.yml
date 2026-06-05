@@ -4,7 +4,7 @@ models:
       config:
         materialized: view
         database: RETAIL_MARKET 
-        schema: DBT_RETAIL_SCH 
+        schema: DBT_INIT 
       columns:
         - name: ID
           tests:

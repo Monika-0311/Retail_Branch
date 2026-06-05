@@ -6,8 +6,8 @@ on:
       - main
   pull_request:
 
-  ##schedule:
-  ##  - cron: '5 * * * *'
+  schedule:
+    - cron: '5 * * * *'
 
 jobs:
   run-dbt:
@@ -36,4 +36,5 @@ jobs:
         run: |
           dbt test --target dev
           dbt run --select b_mock_data --target dev
+          dbt run --select Employees --target dev
           

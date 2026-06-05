@@ -37,6 +37,8 @@ models:
       +schema: DBT_INIT
       +materialized: view
     Silver:
+      +database: RETAIL_MARKET
+      +schema: DBT_INIT
       +materialized: table
 
 seeds:
