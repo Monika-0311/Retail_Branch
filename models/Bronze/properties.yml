@@ -27,4 +27,4 @@ seeds:
     - name: users
       config:
         materialized: seed
-        schema: RETAIL_SCH
+        schema: DBT_INIT
