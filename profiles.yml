@@ -15,10 +15,10 @@ RETAIL_MARKET:
   outputs:
     dev:
       account: YWYMHJQ-UL05791
-      database: DBT_PRACTICE
+      database: RETAIL_MARKET
       password: Ashukr@18082000
       role: ACCOUNTADMIN
-      schema: DBT_SCHEMA_PRACTICE
+      schema: RETAIL_SCH
       threads: 1
       type: snowflake
       user: ASHUTOSH3
