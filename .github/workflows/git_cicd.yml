@@ -34,6 +34,6 @@ jobs:
           ROLE: ${{ secrets.ROLE }}
           SCHEMA: ${{ secrets.SCHEMA }}
         run: |
-          dbt test --target prod
-          dbt run --select b_mock_data --target prod
+          dbt test --target dev
+          dbt run --select b_mock_data --target dev
           
