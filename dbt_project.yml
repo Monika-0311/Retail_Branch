@@ -33,12 +33,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   RETAIL_MARKET:
     Bronze:
-      +database: RETAIL_MARKET
+      +database: RETAIL_MARKET_DB
       +schema: DBT_INIT
       +materialized: view
     Silver:
-      +database: RETAIL_MARKET
-      +schema: DBT_INIT
+      +database: RETAIL_MARKET_DB
+      +schema: RETAIL_MARKET_SCH
       +materialized: table
 
 seeds:

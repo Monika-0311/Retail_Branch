@@ -14,24 +14,24 @@ NETFLIX:
 RETAIL_MARKET:
   outputs:
     dev:
-      account: YWYMHJQ-UL05791
-      database: RETAIL_MARKET
-      password: Ashukr@18082000
+      account: WSHLKWT-GQ89163
+      database: RETAIL_MARKET_DB
+      password: Sagar@1997@0503
       role: ACCOUNTADMIN
-      schema: RETAIL_SCH
+      schema: RETAIL_MARKET_SCH
       threads: 1
       type: snowflake
-      user: ASHUTOSH3
+      user: MONI03
       warehouse: COMPUTE_WH
      
     prod:
-      account: QLJTVTN-GZ26621
-      database: RETAIL_MARKET_PROD
+      account: WSHLKWT-GQ89163
+      database: RETAIL_MARKET_DB
       password: Sagar@1997@0503
       role: ACCOUNTADMIN
-      schema: SOURCE
+      schema: RETAIL_MARKET_SCH
       threads: 1
       type: snowflake
-      user: Monika11
+      user: MONI03
       warehouse: COMPUTE_WH
   target: dev

@@ -2,10 +2,18 @@ version: 2
 
 sources:
   - name: RETAIL_MARKET
-    database: RETAIL_MARKET
-    schema: RETAIL_SCH
+    database: RETAIL_MARKET_DB
+    schema: RETAIL_MARKET_SCH
     tables:
     - name: s_Employees
       identifier: EMPLOYEES
     - name: s_mock_data
       identifier: MOCK_DATA
+    - name: s_order_list
+      identifier: ORDER_LIST
+    - name: s_customers
+      identifier: CUSTOMERS
+    - name: s_hdp_measures
+      identifier: hpd_measures_data
+    - name: s_licensed_healthcare
+      identifier: licensed_healthcare
